@@ -86,7 +86,7 @@ class ListArray : public List<T> {
 
             //Redimensionar si el array esta completo
             if(n == max){
-                resize(max + 1);
+                resize(max + 3);
             }
 
             //Desplazar todo a la derecha
@@ -158,6 +158,8 @@ class ListArray : public List<T> {
         bool empty() override{
             if(n == 0){
                 return true;
+            }else{
+                return false;
             }
         }
 
