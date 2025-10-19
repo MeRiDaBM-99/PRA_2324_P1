@@ -44,7 +44,21 @@ class ListLinked : public List<T> {
         }
 
 
-        friend ostream& operator<< <>(ostream &out, const ListLinked<T> &list);
+	friend ostream& operator<<(ostream &out, const ListLinked<T> &list){
+            out << "[";
+            Node<T>* aux = list.first;
+
+            while (aux != nullptr) {
+                out << aux->data;
+                if (aux->next != nullptr) {
+                    out << ", ";
+                }
+                aux = aux->next;
+            }
+
+            out << "]";
+            return out;
+        }
 
 
         //METODOS HEREDADOS
@@ -151,21 +165,5 @@ class ListLinked : public List<T> {
 };
 
 
-template <typename T>
-ostream& operator<<(ostream &out, const ListLinked<T> &list){
-    out << "[";
-    Node<T>* aux = list.first;
-
-    while (aux != nullptr) {
-        out << aux->data;
-        if (aux->next != nullptr) {
-            out << ", ";
-        }
-        aux = aux->next;
-    }
-
-    out << "]";
-    return out;
-}
 
 #endif
